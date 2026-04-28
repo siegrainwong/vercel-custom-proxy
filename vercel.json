@@ -1,8 +1,12 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/deepseek/(.*)",
       "destination": "https://api.deepseek.com/$1"
+    },
+    {
+      "source": "/cucloud/(.*)",
+      "destination": "https://aigw-gzgy2.cucloud.cn:8443/$1"
     }
   ]
 }
