@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/deepseek/(.*)",
+      "source": "/ds/(.*)",
       "destination": "https://api.deepseek.com/$1"
     },
     {
