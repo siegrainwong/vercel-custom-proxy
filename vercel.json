@@ -7,10 +7,6 @@
     {
       "source": "/oc/(.*)",
       "destination": "https://opencode.ai/zen/go/$1"
-    },
-    {
-      "source": "/ve/(.*)",
-      "destination": "https://console.volcengine.com/$1"
     }
   ]
 }
