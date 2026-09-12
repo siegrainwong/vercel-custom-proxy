@@ -37,5 +37,6 @@ OpenCode Go 要求每个请求带上 `x-opencode-session` 请求头，缺失时�
 
 `routes` 与 `rewrites` 可以共存（Vercel 官方支持），因此 `/ds` 保持原来的 `rewrites` 不动。
 
-注意：`args` 是固定值。若客户端自带真实 session id，此 transform 会把它设为 `vercel-proxy`
-（`op: set` 语义），不影响可用性，只影响 opencode 侧的会话路由亲和性。
+注意：`args` 是固定值，无法按请求动态生成。官方文档对 `op: set` 的语义是「缺失时设置」，
+即客户端已带该头时不覆盖；实测客户端自带值时请求同样返回 200（外部无法观测是否被覆盖）。
+若将来需要动态值（如把客户端 session id 透传、或每次请求随机值），得改用 Routing Middleware（`middleware.ts`）。
