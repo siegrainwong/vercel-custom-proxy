@@ -1,12 +1,23 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
       "source": "/ds/(.*)",
       "destination": "https://api.deepseek.com/$1"
-    },
+    }
+  ],
+  "routes": [
     {
-      "source": "/oc/(.*)",
-      "destination": "https://opencode.ai/zen/go/$1"
+      "src": "/oc/(.*)",
+      "dest": "https://opencode.ai/zen/go/$1",
+      "transforms": [
+        {
+          "type": "request.headers",
+          "op": "set",
+          "target": { "key": "x-opencode-session" },
+          "args": "vercel-proxy"
+        }
+      ]
     }
   ]
 }
